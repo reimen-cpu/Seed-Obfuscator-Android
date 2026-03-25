@@ -60,11 +60,11 @@ To build a production-ready package, you must use Java 17 and provide signing cr
    export JAVA_HOME=/usr/lib/jvm/java-1.17.0-openjdk-amd64
    export PATH=$JAVA_HOME/bin:$PATH
 
-   # Signing credentials
-   export P4A_RELEASE_KEYSTORE=/home/reimen/Escritorio/Projects/play-pause-apk/app/release.jks
-   export P4A_RELEASE_KEYALIAS=playpause_alias
-   export P4A_RELEASE_KEYSTORE_PASSWD=playpause2025
-   export P4A_RELEASE_KEYALIAS_PASSWD=playpause2025
+   # Signing credentials (REPLACE WITH YOUR OWN)
+   export P4A_RELEASE_KEYSTORE=/path/to/your/release.jks
+   export P4A_RELEASE_KEYALIAS=your_alias
+   export P4A_RELEASE_KEYSTORE_PASSWD=your_password
+   export P4A_RELEASE_KEYALIAS_PASSWD=your_password
    ```
 
 2. **Build the release package**:
