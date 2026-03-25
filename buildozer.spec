@@ -7,7 +7,7 @@ title = Seed-obfuscator
 package.name = seedobfuscator
 
 # (str) Package domain (needed for android/ios packaging)
-package.domain = org.test
+package.domain = com.reimencpu
 
 # (str) Source code where the main.py live
 source.dir = .
