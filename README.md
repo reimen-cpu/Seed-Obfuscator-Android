@@ -14,6 +14,7 @@ A professional BIP-39 Seed Obfuscator for Android. This tool allows you to trans
 
 - Python 3.8+
 - [Buildozer](https://github.com/kivy/buildozer) (for Android compilation)
+- **Java 17 (OpenJDK 17)**: Required for Gradle compatibility.
 - BIP-39 wordlist (`bip39.txt` must be in the project root)
 
 ## Installation & Local Development
@@ -44,24 +45,34 @@ A professional BIP-39 Seed Obfuscator for Android. This tool allows you to trans
 
 ## Compiling for Android
 
-To build the production release APK:
+### For testing (Debug APK)
+To test the app on your device without needing signing keys:
+```bash
+buildozer android debug deploy run
+```
 
-1. **Activate the virtual environment**:
+### For Production (Release APK)
+To build a production-ready package, you must use Java 17 and provide signing credentials.
+
+1. **Set your environment variables**:
    ```bash
-   source venv/bin/activate
+   # Java 17 requirement
+   export JAVA_HOME=/usr/lib/jvm/java-1.17.0-openjdk-amd64
+   export PATH=$JAVA_HOME/bin:$PATH
+
+   # Signing credentials
+   export P4A_RELEASE_KEYSTORE=/home/reimen/Escritorio/Projects/play-pause-apk/app/release.jks
+   export P4A_RELEASE_KEYALIAS=playpause_alias
+   export P4A_RELEASE_KEYSTORE_PASSWD=playpause2025
+   export P4A_RELEASE_KEYALIAS_PASSWD=playpause2025
    ```
 
-2. **Run the build command**:
+2. **Build the release package**:
    ```bash
    buildozer android release
    ```
 
-3. **Install and run on device**:
-   ```bash
-   buildozer android release deploy run
-   ```
-
-The output APK will be in the `bin/` folder.
+The output artifact (e.g., `seedobfuscator-1.0.0-release.apk`) will be in the `bin/` folder and is ready for installation.
 
 ## Security Warning
 

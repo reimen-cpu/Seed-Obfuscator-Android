@@ -7,7 +7,7 @@ from kivy.lang import Builder
 from kivy.core.clipboard import Clipboard
 from kivy.utils import platform
 from kivymd.app import MDApp
-from kivymd.uix.snackbar import Snackbar
+from kivymd.toast import toast
 from kivymd.uix.filemanager import MDFileManager
 
 
@@ -294,12 +294,9 @@ class SeedApp(MDApp):
     # --- Helpers -------------------------------------------------------------
 
     def _show_status(self, msg, is_error=False):
-        """Update the on-screen status label and show a snackbar."""
+        """Update the on-screen status label and show a toast."""
         self.root.ids.status_log.text = f"Estado: {msg}"
-        snackbar = Snackbar(text=msg)
-        if is_error:
-            snackbar.bg_color = (0.8, 0.2, 0.2, 1)
-        snackbar.open()
+        toast(msg)
 
     # --- File manager --------------------------------------------------------
 
